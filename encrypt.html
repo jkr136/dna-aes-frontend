@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Form</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="encry">
+        <label>Plain Text:</label>
+        <br/>
+        <input type="text" id="plainText">
+        <br/>
+        <br/>
+        <label>Key:</label>
+        <br/>
+        <input type="text" id="encryptionKey">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <button onclick="encrypt()">Encrypt</button>
+        <br>
+        <br>
+        <label>Encrypted Output:</label>
+        <br>
+        <br>
+        <input type="text" id="encryptedText">
+    </div>
+
+    <script>
+        function encrypt() {
+            var plainText = document.getElementById('plainText').value;
+            var encryptionKey = document.getElementById('encryptionKey').value;
+
+
+            var data = {
+                text: plainText,
+                key: encryptionKey
+            };
+
+            fetch('https://dna-aes-backend.onrender.com/encrypt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(encryptedText => {
+                document.getElementById('encryptedText').value = encryptedText;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        }
+    </script>
+</body>
+</html>

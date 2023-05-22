@@ -1,0 +1,89 @@
+*{
+    background-color: grey;
+    margin:0;
+    overflow: hidden;
+}
+.main-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10em;
+    gap:2em;
+
+
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+        animation-timing-function: ease-in;
+    }
+    100% {
+        transform: translateY(0);
+        animation-timing-function: ease-out;
+    }
+}
+
+.encrypt:hover {
+    animation: moveUp 1s infinite;
+}
+    
+.decrypt:hover {
+    animation: moveUp 1s infinite;
+}
+
+
+  
+
+ .encrypt button{
+    border:none;
+    border-radius: 20em;
+    background-color:red;
+    padding: 2em;
+    height: 10em;
+    margin: 10em;
+
+}
+.decrypt button{
+    border:none;
+    border-radius: 20em;
+    background-color:red;
+    padding: 2em;
+    height: 10em;
+    margin: 10em;
+
+}
+button{
+    font-size: 1em;
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 2em;
+    border-radius: 1em;
+}
+.encry{
+    background-color: white;
+    margin: 5em;
+    padding: 5em;
+    border-radius: 2em;
+
+}
+.encry label{
+    background-color: white;
+    
+}
+.encry input{
+    outline: none;
+    margin-top: 2em;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    border-radius: 1em;    
+
+}
+.encry :hover{
+    border: 1px solid blue;
+    background-color: blue;
+}
